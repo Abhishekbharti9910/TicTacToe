@@ -30,7 +30,7 @@ header{
         height: 50vh;
         margin: 0 auto;
   }
-.cells{
+.cell{
     background-color: cornsilk;
     display: flex;
     justify-content: center;
@@ -38,8 +38,8 @@ header{
     cursor: pointer;
     font-size: 32px;
 }
-.cells:hover{
-    scale: 1.05;
+.cell:hover{
+    scale: 1.02;
 }
 #retryBtn{
     position: fixed;
