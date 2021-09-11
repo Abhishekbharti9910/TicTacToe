@@ -1,11 +1,28 @@
-let scoreBoard = [];
+var scoreBoard = new Array(9);
 
-(function() {
+let startGame = (function() {
     let cells = document.querySelectorAll(".cell");
     let human;
     let ai;
 
-    // this function run at initial
+    // tocheck board is empty
+    const boxEmpty = (i)=>{
+        // for (let i = 0; i < scoreBoard.length; i++) {
+        //     if(scoreBoard[i] === undefined){
+        //         return true;
+        //     }
+        //     else
+        //     return false;
+        // }
+        console.log(scoreBoard[i]);
+        if (scoreBoard[i] == undefined) {
+            return true;
+        }
+        else{
+            false;
+        }
+    }
+    // this function run at onload
     function choosePlayer() {
         const choose = document.querySelectorAll(".choose");
         choose.forEach((sign)=>{
@@ -22,24 +39,27 @@ let scoreBoard = [];
             })
         })
     } 
-    choosePlayer();
-
+    function aiChoose() {
+        return aiSelectionType.weakSelection();   
+    }
     // turn click event
     function turnClick() {
         cells.forEach((cell)=>
         cell.addEventListener("click",(e)=>{
             bxId = e.target.id;
-            if (scoreBoard[bxId]!="undefined") {
+            if (boxEmpty(bxId)) {
+                console.log("you choosed "+bxId);
                 turn(bxId, human);
-                console.log("ai has coosed : "+aiChoose());
-                turn(aiChoose(),ai);
+                e.target.innerHTML = human;
+                let k = aiChoose();
+                document.getElementById(`${k}`).innerHTML = ai;
+                console.log("ai choosed "+k);
+                turn(k,ai);
+                console.log(scoreBoard);
             }
-            console.log(scoreBoard);
             })
         );
     }
-    turnClick();
-
     // player turn
     function turn(boxId,player) {
         scoreBoard[boxId] = player;
@@ -47,7 +67,6 @@ let scoreBoard = [];
             console.log(`player ${player} won`);
         }
     }
-
     // winning condition
     function win(player) {
         if (scoreBoard[0]==player) {
@@ -92,36 +111,48 @@ let scoreBoard = [];
         }
 
     }
-    function aiChoose() {
-        return weakSelection();   
-    }
 
+    return {choosePlayer, turnClick, win};
 })();
 
-const miniMaxAlgo = ()=>{
+// computer playing techniques
+let aiSelectionType = (function name(params) {
+    const miniMaxAlgo = ()=>{
 
-}
-
-const weakSelection = () =>{
-    // if (boxEmpty()) {
-        for (let i = 0; i < scoreBoard.length; i++) {
-            if (scoreBoard[i] === undefined) {
-                return i;
-            }
-        }
-    // }
-    // else{
-        console.log("check box is full hence draw");
-        return -1;
-    // }
-}
-
-const boxEmpty = ()=>{
-    for (let i = 0; i < scoreBoard.length; i++) {
-        if(scoreBoard[i] === undefined){
-            return true;
-        }
-        else
-        return false;
     }
-}
+    const weakSelection = () =>{
+        // if (boxEmpty()) {
+            let emptyBox = [];
+            let k = 0;
+            for (let i = 0; i < scoreBoard.length; i++) {
+                if (scoreBoard[i] == undefined) {
+                    emptyBox[k] = i;
+                    k++;
+                }
+            }
+        // }
+        // else{
+            
+            if (emptyBox[0]!=undefined) {
+                console.log(emptyBox);
+                k = Math.floor(Math.random() * emptyBox.length);
+                console.log(k);
+                return emptyBox[k];
+            }
+            else{
+            console.log("check box is full hence draw");
+            return -1;
+            }
+        // }
+    }
+    return {weakSelection, miniMaxAlgo};
+})();
+
+
+// aiChoose();
+startGame.choosePlayer();
+startGame.turnClick();
+
+
+
+// form and card function envocation

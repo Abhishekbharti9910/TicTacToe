@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/onload.css">
     <!-- custom fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,26 +20,58 @@
     <header>
         <h2>Tic Tac Toe</h2>
     </header>
-    <div class="container">
-        <button class="choose" id="X">X</button>
-        <button class="choose" id="O">O</button>
-        <div class="child">
-            <div class="cell" id="0">0</div>
-            <div class="cell" id="1">1</div>
-            <div class="cell" id="2">2</div>
-            <div class="cell" id="3">3</div>
-            <div class="cell" id="4">4</div>
-            <div class="cell" id="5">5</div>
-            <div class="cell" id="6">6</div>
-            <div class="cell" id="7">7</div>
-            <div class="cell" id="8">8</div>
+
+<!-- onload start here -->
+    <div id="onload">
+        <small style="color:red; font-size: 15px; font-weight: bold;"></small>
+        <div class="onldItem">
+            <label for="mode">Mode</label>
+            <select name="mode" id="mode" class="btn">
+                <option value="ai" class="humOrAi">AI</option>
+                <option value="multiplayer" class="humOrAi">Multiplayer</option>
+            </select>
         </div>
-        <button id="retryBtn">retry</button>
+        <div class="onldItem inactive" id="diff_In_A">
+            <label for="diff">difficulty</label>
+            <select name="diff" id="diff" class="btn" disabled>
+                <option value="easy">easy</option>
+                <option value="hard">unbeatable</option>
+            </select>
+        </div>
+        <div class="onldItem" id="symbol">
+            <div>
+                <button class="choose btn" id="X">X</button>
+            </div>
+            or
+            <div>
+                <button class="choose btn" id="O">O</button>
+            </div>
+        </div>
+        <div class="onldItem">
+            <button id="start" class="btn">Start Game</button>
+        </div>
+    </div>
+<!-- onload end here -->
+
+    <div class="container">
+        <div class="child">
+            <div class="cell" id="0"></div>
+            <div class="cell" id="1"></div>
+            <div class="cell" id="2"></div>
+            <div class="cell" id="3"></div>
+            <div class="cell" id="4"></div>
+            <div class="cell" id="5"></div>
+            <div class="cell" id="6"></div>
+            <div class="cell" id="7"></div>
+            <div class="cell" id="8"></div>
+        </div>
+        <button id="retryBtn" class="btn">retry</button>
       </div>
     <div class="result">
     </div>
-
+<!-- custom scripts -->
     <script src="./js_files/script.js"></script>
+    <script src="./js_files/onld.js"></script>
 </body>
 
 </html>

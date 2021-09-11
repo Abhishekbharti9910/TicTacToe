@@ -9,7 +9,6 @@ body{
     background-color: cornflowerblue;
     font-family: 'Azeret Mono', monospace;
 }
-
 header{
     text-align: center;
     background-color: darkcyan;
@@ -36,7 +35,7 @@ header{
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 32px;
+    font-size: 45px;
 }
 .cell:hover{
     scale: 1.02;
