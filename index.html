@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/onload.css">
     <!-- custom fonts -->
+    <link rel="stylesheet" href="./style/winLoss.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100&display=swap" rel="stylesheet">
@@ -21,7 +22,7 @@
         <h2>Tic Tac Toe</h2>
     </header>
 
-<!-- onload start here -->
+    <!-- onload start here -->
     <div id="onload">
         <small style="color:red; font-size: 15px; font-weight: bold;"></small>
         <div class="onldItem">
@@ -51,7 +52,7 @@
             <button id="start" class="btn">Start Game</button>
         </div>
     </div>
-<!-- onload end here -->
+    <!-- onload end here -->
 
     <div class="container">
         <div class="child">
@@ -65,11 +66,28 @@
             <div class="cell" id="7"></div>
             <div class="cell" id="8"></div>
         </div>
-        <button id="retryBtn" class="btn">retry</button>
-      </div>
-    <div class="result">
+        <div>
+            <button class="btn retry gameRetryBtn">retry</button>
+        </div>
     </div>
-<!-- custom scripts -->
+    
+    <!-- win loss card -->
+    <div id="winLoss" class="hide">
+        <div class="card">
+            <div class="front">
+                <h2 class="sub-title">Have a look to result</h2>
+                <h1 class="title" id="result">
+                    You Won
+                </h1>
+                <img class="image" src="./img/rick.png" alt="" />
+                <button class="btn retryBtn retry">retry</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- win loss card end -->
+
+    <!-- custom scripts -->
     <script src="./js_files/script.js"></script>
     <script src="./js_files/onld.js"></script>
 </body>

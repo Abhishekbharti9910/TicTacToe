@@ -1,35 +1,40 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     max-width: 100%;
     overflow-x: hidden;
     background-color: cornflowerblue;
     font-family: 'Azeret Mono', monospace;
 }
-header{
+
+header {
     text-align: center;
     background-color: darkcyan;
 }
+
 .container {
     position: relative;
     top: 100px;
-    left: 37%;
-     }
+    left: 35%;
+}
+
 .child {
-        display: inline-grid;
-        background-color: black;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr; 
-        column-gap: 3px;
-        row-gap: 3px;
-        width: 30%;
-        height: 50vh;
-        margin: 0 auto;
-  }
-.cell{
+    display: inline-grid;
+    background-color: black;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3px;
+    row-gap: 3px;
+    width: 30%;
+    height: 50vh;
+    margin: 0 auto;
+}
+
+.cell {
     background-color: cornsilk;
     display: flex;
     justify-content: center;
@@ -37,10 +42,12 @@ header{
     cursor: pointer;
     font-size: 45px;
 }
-.cell:hover{
+
+.cell:hover {
     scale: 1.02;
 }
-#retryBtn{
+
+#retryBtn {
     position: fixed;
     bottom: 20%;
     left: 50%;
@@ -48,16 +55,30 @@ header{
     height: 40px;
     font-size: 20px;
 }
+
+.gameRetryBtn {
+    position: absolute;
+    bottom: -26%;
+    left: 12%;
+}
+.hide{
+    display: none;
+}
+.highLight{
+    background-color: cadetblue;
+    opacity: 0.6;
+}
 @media only screen and (max-width: 600px) {
-    .container{
+    .container {
         left: 20%;
     }
-    .child{
-        width: 70%;
+    .child {
+        width: 72%;
         height: 70vw;
+        margin: 0 -5%;
     }
-    #retryBtn{
-        left: 43vw;
-        bottom: 30%;
+    .gameRetryBtn {
+        left: 22vw;
+        bottom: -19%;
     }
-} 
+}

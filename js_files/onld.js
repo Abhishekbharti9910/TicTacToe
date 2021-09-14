@@ -12,6 +12,7 @@ let onld = (() => {
             })
         });
     }
+    // if we choose multi player the in active ai hard easy section
     function inactiveIfMulti(selected) {
         let inActive = document.querySelector("#diff_In_A");
         let disableness = document.querySelector("#diff");
@@ -30,6 +31,7 @@ let onld = (() => {
         let j = -1;
     
         choose.forEach((item) =>{
+            // this listener to check x or y clicked or not
             item.addEventListener("click",()=> {
                 let containerNode = document.querySelector("small");
                 containerNode.innerHTML = "";
